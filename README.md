@@ -23,7 +23,7 @@
 ## Overview
 
 ![](./frontpage.png)
-![](./gmaepage.png)
+![](./gamepage.png)
 ![](./backpage.png)
 
 
