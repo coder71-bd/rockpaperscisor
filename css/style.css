@@ -457,12 +457,12 @@ p#player_name {
 .win_or_loss {
     display: block;
     position: absolute;
-    margin-bottom: 15rem;
+    margin-bottom: 25rem;
     font-size: 2em;
     letter-spacing: .04em;
     font-weight: bolder;
     text-align: center;
-    font-family: 'Kaushan Script', cursive;/* add a nice font-family here*/
+    font-family: 'Kaushan Script', cursive;
 }
 .home_icon {
     width: 20rem;
