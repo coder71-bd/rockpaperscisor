@@ -206,19 +206,3 @@ function scissors() {
     })
 
 
-
-
-
-
-
-
-
-/* tomorrow task 
-1. add an animation when frontpage goes invisible and gamepage goes visible
-2. create a back page with two links one for play again and one for homepage
-3. add a points limit when that point limits passed that game in ended and the backpage is loaded with animation
-4. style the whole website with typography and responsiveness
-5. test the website and update the code in github
-6. deploy it via netlify
-7. add solution to the odin project
-*/
