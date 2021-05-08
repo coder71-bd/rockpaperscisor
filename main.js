@@ -1,72 +1,201 @@
-let myScore = 0;
-let comScore = 0;
+let userScore = 0;
+let compScore = 0;
 
-function computerPlay() {
-	const randomMove = ['rock', 'paper', 'scisor']
-  let randomNum = Math.floor(Math.random() * randomMove.length)
+const rock = document.querySelector('#rock')
+const paper = document.querySelector('#paper')
+const scissor = document.querySelector('#scissor')
+let computerRock = document.querySelector('#computer-rock')
+let computerPaper = document.querySelector('#computer-paper')
+let computerScissor = document.querySelector('#computer-scissor')
+let myPointsElem = document.querySelector('.player_p')
+let compPointsElem = document.querySelector('.comp_p')
+const quotes = document.querySelector('.quotes')
+
+let userMove;
+function compMove() {
+	const randomMove = ['rock', 'paper', 'scissor']
+    let randomNum = Math.floor(Math.random() * randomMove.length)
   return randomMove[randomNum]
 }
 
-function playRound(playerSelection, computerSelection) {
-	let me = playerSelection.toLowerCase()
-  let com = computerSelection.toLowerCase()
-  let rock = () => {
-  	if(com === 'paper') {
-  			alert('You lose! Paper beats Rock')
-        comScore += 1;
- 	 	} else if(com === 'scisor') {
-  			alert('You win! rock beats scisor')
-        myScore += 1;
-  	} else if(com === 'rock') {
-  			alert('ops! match draw')
-  	}
-  }
-  
-  let paper = () => {
-  	if(com === 'paper') {
-  			alert('try again! match draw')
- 	 	} else if(com === 'scisor') {
-  			alert('paper beats scisor')
-        myScore += 1;
-  	} else if(com === 'rock') {
-  			alert('paper beats rock')
-        comScore += 1;
-  	}
-  }
-  
-  let scisor = () => {
-  	if(com === 'paper') {
-  			alert('scisor cuts paper')
-        myScore += 1;
- 	 	} else if(com === 'scisor') {
-  			alert('match tied')
-  	} else if(com === 'rock') {
-  			alert('scisor can\'t cut rock')
-        comScore += 1;
-  	}
-  }
-  
-  if(me === 'rock') {
-  	return rock()
-  } else if(me === 'paper') {
-  	return paper()
-  } else if(me === 'scisor') {
-  	return scisor()
-  } else {
-  	return 'sorry that move is not recognized'
-  }
+/*page manipulation */
+const start = document.querySelector('.start')
+const frontPage = document.querySelector('.front_page')
+const gamePage = document.querySelector('.game_page')
+const backPage = document.querySelector('.back_page')
+const playAgain = document.querySelector('.play_again')
+const arrowLeft = document.querySelector('.home')
+const homeIcon = document.querySelector('.home_icon')
+
+/* when i clicking start button */
+function frontToGame() {
+    frontPage.classList.add('invisible')
+    gamePage.classList.replace('invisible', 'visible_game')
+}
+/* when i clicking arroleft icon */
+function GameToFront() {
+    gamePage.classList.replace('visible_game', 'invisible')
+    frontPage.classList.remove('invisible', 'visible')
+}
+
+function gameToBack() {
+    if(userScore >= 5 || compScore >= 5) {
+        userScore = 0;
+        compScore = 0;
+        
+        gamePage.classList.replace('visible_game', 'invisible')
+        backPage.classList.replace('invisible', 'visible')
+    }
+}
+
+/*when i clicking the play Again button */
+function backtoGame() {
+    backPage.classList.replace('visible', 'invisible')
+    gamePage.classList.replace('invisible', 'visible_game')
+}
+
+function backToHome() {
+    frontPage.classList.replace('invisible', 'visible')
+    backPage.classList.replace('visible', 'invisible')
 }
 
 
-function game() {
-for(let i = 0; i < 5; i++) {
-	playRound(prompt('input your move'), computerPlay())
+
+start.addEventListener('click', frontToGame)
+arrowLeft.addEventListener('click', GameToFront)
+playAgain.addEventListener('click', backtoGame)
+homeIcon.addEventListener('click', backToHome)
+
+/* game play */
+
+function removeAnimation() {
+    rock.classList.remove('player_rock_animation')
+    paper.classList.remove('player_paper_animation')
+    scissor.classList.remove('player_scissor_animation')
+
+    if(computerPaper.classList.contains('computer_paper_animation')) {
+        computerPaper.classList.remove('computer_paper_animation')
+    }
+
+    if(computerRock.classList.contains('computer_rock_animation')) computerRock.classList.remove('computer_rock_animation')
+
+    if(computerScissor.classList.contains('computer_scissor_animation')) computerScissor.classList.remove('computer_scissor_animation')
+
+    if(quotes.classList.contains('quotes_animation')) quotes.classList.remove('quotes_animation')
 }
-  
-if(myScore > comScore) {
-	return 'you won'
-} else if(comScore > myScore) {
-	return 'you loose'
+
+function rocks() {
+    let rockMove = compMove()
+    switch(rockMove) {
+        case 'scissor': 
+            userScore += 1
+            quotes.textContent = 'You win! rock cuts scissor'
+            computerScissor.classList.add('computer_scissor_animation')
+            break
+        case 'paper':
+            compScore += 1
+            quotes.textContent = 'You lose! paper holds rock'
+            computerPaper.classList.add('computer_paper_animation')
+            break
+        default:
+            quotes.textContent = 'ops! match draw. Try again'
+            computerRock.classList.add('computer_rock_animation')
+    }
+    rock.classList.add('player_rock_animation')
+    quotes.classList.add('quotes_animation')
+    setTimeout(removeAnimation, 1500)
 }
-return 'match draw'
+
+function papers() {
+    let paperMove = compMove()
+    switch(paperMove) {
+        case 'scissor':
+            compScore += 1
+            quotes.textContent = 'You lose! scissor cuts paper'
+            computerScissor.classList.add('computer_scissor_animation')
+            break
+        case 'rock':
+            userScore += 1;
+            quotes.textContent = 'You win! rock beats scisor'
+            computerRock.classList.add('computer_rock_animation')
+            break
+        default:
+            quotes.textContent= 'ops! match draw. Try again'
+            computerPaper.classList.add('computer_paper_animation')
+    }
+    paper.classList.add('player_paper_animation')
+    quotes.classList.add('quotes_animation')
+    setTimeout(removeAnimation, 1500)
 }
+
+function scissors() {
+    let scissorsMove = compMove()
+    switch(scissorsMove) {
+        case 'rock':
+            compScore += 1
+            quotes.textContent = 'You lose! rock breaks scissor'
+            computerRock.classList.add('computer_rock_animation')
+            break
+        case 'paper':
+            userScore += 1
+            quotes.textContent = 'You win! your scissor cuts the paper'
+            computerPaper.classList.add('computer_paper_animation')
+            break
+        default:
+            quotes.textContent= 'ops! match draw. Try again'
+            computerScissor.classList.add('computer_scissor_animation')
+    }
+    scissor.classList.add('player_scissor_animation')
+    quotes.classList.add('quotes_animation')
+    setTimeout(removeAnimation, 1500)
+}
+
+
+    rock.addEventListener('click', () => {
+        userMove = 'rock';
+        rocks()
+        gameToBack() 
+        myPointsElem.textContent = userScore
+        compPointsElem.textContent = compScore
+        
+    })
+    
+    paper.addEventListener('click', () => {
+        userMove = 'paper'
+        papers()
+        gameToBack()
+        myPointsElem.textContent = userScore
+        compPointsElem.textContent = compScore
+    })
+    
+    scissor.addEventListener('click', () => {
+        userMove = 'scissor'
+        scissors()
+        gameToBack()
+        myPointsElem.textContent = userScore
+        compPointsElem.textContent = compScore
+    })
+
+
+const playerName = document.querySelector('#player_name')
+const playerName1 = document.querySelector('.player_name1')
+
+const nameValue = document.querySelector('#name_value')
+function updateName(e) {
+    playerName.textContent = `${e.target.value}`
+    playerName1.textContent = `${e.target.value}`
+}
+nameValue.addEventListener('input', updateName)
+
+
+
+
+/* tomorrow task 
+1. add an animation when frontpage goes invisible and gamepage goes visible
+2. create a back page with two links one for play again and one for homepage
+3. add a points limit when that point limits passed that game in ended and the backpage is loaded with animation
+4. style the whole website with typography and responsiveness
+5. test the website and update the code in github
+6. deploy it via netlify
+7. add solution to the odin project
+*/
