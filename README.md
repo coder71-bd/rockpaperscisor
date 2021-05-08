@@ -3,8 +3,8 @@
 <div align="center">
   <h3>
   <!--add netlify link here-->
-    <a href="">
-      Demo
+    <a href="https://rock-paper-scissor-2021.netlify.app/">
+      Live Demo
     </a>
   </h3>
 </div>

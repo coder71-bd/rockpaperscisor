@@ -454,6 +454,16 @@ p#player_name {
     justify-content: space-evenly;
     align-items: center;
 }
+.win_or_loss {
+    display: block;
+    position: absolute;
+    margin-bottom: 15rem;
+    font-size: 2em;
+    letter-spacing: .04em;
+    font-weight: bolder;
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;/* add a nice font-family here*/
+}
 .home_icon {
     width: 20rem;
     cursor: pointer;
@@ -462,6 +472,7 @@ p#player_name {
 .home_icon:hover {
     width: 15rem;
 }
+
 
 
 
