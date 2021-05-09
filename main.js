@@ -67,11 +67,13 @@ function gameToBack() {
 function backtoGame() {
     backPage.classList.replace('visible', 'invisible')
     gamePage.classList.replace('invisible', 'visible_game')
+    quotes.textContent = '';
 }
 
 function backToHome() {
     frontPage.classList.replace('invisible', 'visible')
     backPage.classList.replace('visible', 'invisible')
+    quotes.textContent = '';
 }
 
 function backText() {

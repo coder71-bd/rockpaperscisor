@@ -228,18 +228,18 @@ table tr td{
     color: var(--quotes-color);
     font-size: 1.8em;
     text-align: center;
-    opacity: 0;
+    /* opacity: 0; */
     font-family: 'Roboto', sans-serif;
 }
 
 
 .quotes_animation{
-    animation: quotesanimation 2s ease-in 0s 1 alternate both;
+    animation: quotesanimation 2s ease 0s 1;
 }
 
 @keyframes quotesanimation {
     20%{ transform: scale(2); opacity: 0.5;}
-    100%{opacity: 1;}
+    100%{transform: scale(1);opacity: 1;}
 }
 
 
@@ -416,7 +416,23 @@ p#player_name {
         font-size: 1.2em;
     }
 
+
 }
+/* new rules */
+@media (max-width: 450px) {
+    .moves i {
+        font-size: 7rem;
+        margin-left: 0px;
+    }
+    .moves {
+        grid-template-columns: 0rem auto 12rem auto 0.3rem;
+        margin-top: 2rem;
+    }
+    p#player_name, .name2 {
+        font-size: 2em;
+    }
+}
+/* new rules */
 @media (min-width: 550px) {
     #scissor {
         margin-left: 3rem;
