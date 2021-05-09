@@ -1,28 +1,36 @@
+/* this value is changing dyanmically */
+
 let userScore = 0;
 let compScore = 0;
-/*player name updating */
+
+/*player name updating after taking input*/
+
 const playerName = document.querySelector('#player_name')
 const playerName1 = document.querySelector('.player_name1')
-
 const nameValue = document.querySelector('#name_value')
+
 function updateName(e) {
     playerName.textContent = `${e.target.value}`
     playerName1.textContent = `${e.target.value}`
 }
 nameValue.addEventListener('input', updateName)
-/* game play */
+
+/* game will start after clicking any of three icons */
 
 const rock = document.querySelector('#rock')
 const paper = document.querySelector('#paper')
 const scissor = document.querySelector('#scissor')
-let computerRock = document.querySelector('#computer-rock')
-let computerPaper = document.querySelector('#computer-paper')
-let computerScissor = document.querySelector('#computer-scissor')
-let myPointsElem = document.querySelector('.player_p')
-let compPointsElem = document.querySelector('.comp_p')
+const computerRock = document.querySelector('#computer-rock')
+const computerPaper = document.querySelector('#computer-paper')
+const computerScissor = document.querySelector('#computer-scissor')
+const myPointsElem = document.querySelector('.player_p')
+const compPointsElem = document.querySelector('.comp_p')
 const quotes = document.querySelector('.quotes')
 
-let userMove;
+let userMove; // i think i don't need it
+
+/* randomly generating game moves */
+
 function compMove() {
 	const randomMove = ['rock', 'paper', 'scissor']
     let randomNum = Math.floor(Math.random() * randomMove.length)
@@ -30,6 +38,7 @@ function compMove() {
 }
 
 /*page manipulation */
+
 const start = document.querySelector('.start')
 const frontPage = document.querySelector('.front_page')
 const gamePage = document.querySelector('.game_page')
@@ -39,19 +48,19 @@ const arrowLeft = document.querySelector('.home')
 const homeIcon = document.querySelector('.home_icon')
 const winOrLoss = document.querySelector('.win_or_loss')
 
-/* when i clicking start button */
+/* when i clicking play button */
 function frontToGame() {
     frontPage.classList.add('invisible')
     gamePage.classList.replace('invisible', 'visible_game')
 }
-/* when i clicking arroleft icon */
+
+/* when i clicking home Image */
 function GameToFront() {
     gamePage.classList.replace('visible_game', 'invisible')
     frontPage.classList.remove('invisible', 'visible')
 }
 
-/* changing this function */
-
+/* when the game finished */
 function gameToBack() {
     if(userScore >= 5 || compScore >= 5) {
         userScore = 0;
@@ -62,7 +71,6 @@ function gameToBack() {
     }
 }
 
-
 /*when i clicking the play Again button */
 function backtoGame() {
     backPage.classList.replace('visible', 'invisible')
@@ -70,12 +78,14 @@ function backtoGame() {
     quotes.textContent = '';
 }
 
+/* when i clicking the home image */
 function backToHome() {
     frontPage.classList.replace('invisible', 'visible')
     backPage.classList.replace('visible', 'invisible')
     quotes.textContent = '';
 }
 
+/* after finishing game showing who win */
 function backText() {
     if(userScore >= 5) {
         if(playerName.textContent === 'YOU') {
@@ -96,6 +106,8 @@ homeIcon.addEventListener('click', backToHome)
 
 /* game play */
 
+/* i have to remove animations unless the animations will only happen once */
+
 function removeAnimation() {
     rock.classList.remove('player_rock_animation')
     paper.classList.remove('player_paper_animation')
@@ -112,6 +124,8 @@ function removeAnimation() {
     if(quotes.classList.contains('quotes_animation')) quotes.classList.remove('quotes_animation')
 }
 
+
+/* when i clicking rock icon */
 function rocks() {
     let rockMove = compMove()
     switch(rockMove) {
@@ -134,6 +148,7 @@ function rocks() {
     setTimeout(removeAnimation, 1500)
 }
 
+/* when i clicking paper icon */
 function papers() {
     let paperMove = compMove()
     switch(paperMove) {
@@ -156,6 +171,7 @@ function papers() {
     setTimeout(removeAnimation, 1500)
 }
 
+/* when i clicking scissor icon */
 function scissors() {
     let scissorsMove = compMove()
     switch(scissorsMove) {
@@ -179,32 +195,32 @@ function scissors() {
 }
 
 
-    rock.addEventListener('click', () => {
-        userMove = 'rock';
-        rocks()
-        backText()
-        gameToBack() 
-        myPointsElem.textContent = userScore
-        compPointsElem.textContent = compScore
-        
-    })
+rock.addEventListener('click', () => {
+    userMove = 'rock';
+    rocks()
+    backText()
+    gameToBack()
+    myPointsElem.textContent = userScore
+    compPointsElem.textContent = compScore
     
-    paper.addEventListener('click', () => {
-        userMove = 'paper'
-        papers()
-        backText()
-        gameToBack()
-        myPointsElem.textContent = userScore
-        compPointsElem.textContent = compScore
-    })
+})
     
-    scissor.addEventListener('click', () => {
-        userMove = 'scissor'
-        scissors()
-        backText()
-        gameToBack()
-        myPointsElem.textContent = userScore
-        compPointsElem.textContent = compScore
-    })
+paper.addEventListener('click', () => {
+    userMove = 'paper'
+    papers()
+    backText()
+    gameToBack()
+    myPointsElem.textContent = userScore
+    compPointsElem.textContent = compScore
+})
+    
+scissor.addEventListener('click', () => {
+    userMove = 'scissor'
+    scissors()
+    backText()
+    gameToBack()
+    myPointsElem.textContent = userScore
+    compPointsElem.textContent = compScore
+})
 
 

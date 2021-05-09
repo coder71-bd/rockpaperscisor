@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scisor</title>
+
+    <!-- css styles -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
+
      <!-- google fonts  -->
      <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
@@ -13,95 +16,126 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="front_page">
-            <header>
-                <h1>ROCK PAPER SCISSOR</h1>
-            </header>
-            <div class="link">
-                <a class="github_repo_link" href="https://github.com/coder71-bd/rockpaperscisor" target="_blank"><i class="fab fa-github-square"></i></a>
-            </div>
-            
-            <div class="rules">
-                <p class="para1">Legendary Rock Paper Scissor game are waiting for you.</p>
 
-                <p class="para2">
-                    Enter your name and press the play button to begin.
-                </p>
-            </div>
-            <form>
-                <input type="text"  name="player" id="name_value" placeholder="Enter your name">
-            </form>
-            <div class="btn">  
-                <div class="start"><i class="fas fa-play"></i></div>
-            </div>
-            <p class="tip">Tip: Earn 5 points before your enemy(computer)</p>
+    <!-- bringing icons from Icons8 -->
+    <a href="https://icons8.com/icon/tNcJ7GGjHsUq/house"></a>
+
+    <!-- bringing icons from font-awesome -->
+    <script src="https://kit.fontawesome.com/4ab6c0d280.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- front page of the site -->
+    <div class="front_page">
+        <header>
+            <h1>ROCK PAPER SCISSOR</h1>
+        </header>
+
+        <!-- github repo link -->
+        <div class="link">
+            <a class="github_repo_link" href="https://github.com/coder71-bd/rockpaperscisor" target="_blank"><i class="fab fa-github-square"></i></a>
+        </div>
+
+        <!-- introductory words -->
+        <div class="rules">
+            <p class="para1">Legendary Rock Paper Scissor game are waiting for you.</p>
+
+            <p class="para2">
+                Enter your name and press the play button to begin.
+            </p>
+        </div>
+
+        <!-- player name -->
+        <form>
+            <input type="text"  name="player" id="name_value" placeholder="Enter your name">
+        </form>
+        <!-- play button -->
+        <div class="btn">  
+            <div class="start"><i class="fas fa-play"></i></div>
+        </div>
+
+        <!-- game tip -->
+        <p class="tip">Tip: Earn 5 points before your enemy(computer)</p>
     </div>
+
+    <!-- game page of the site -->
     <div class="game_page invisible">
+
+        <!-- clicking this will send the user back to frontpage -->
         <img class="home" src="https://img.icons8.com/emoji/96/000000/house-emoji.png"/>
+
+        <!-- points table -->
         <div class="table_container">
             <h1>Points Table</h1>
+
             <table class="tbl">
                 <tr class="row1">
+                    <!-- dinamically updating player name -->
                     <td class="player_name1">You</td>
                     <td>Computer</td>
                 </tr>
                 <tr class="row2">
+                    <!-- dynamically updating player points -->
                     <td><span class="player_p">0</span></td>
                     <td><span class="comp_p">0</span></td>
                 </tr>
             </table>
         </div>
         
-
+        <!-- dyanamically adding quotes -->
         <p class="quotes"></p>
 
         <div class="moves">
-                    <p id="player_name">YOU</p>
-                    <p class="name2">COMPUTER</p>
-                    <div class="player_rock">
-                        <i class="fas fa-hand-rock addon" id="rock"></i>
-                        <div class="circle"></div>
-                    </div>
-    
-                    <div class="player_paper">
-                        <i class="fas fa-hand-paper addon" id="paper"></i>
-                        <div class="circle"></div>
-                    </div>
-    
-                    <div class="player_scissor">
-                        <i class="fas fa-hand-scissors addon" id="scissor"></i>
-                        <div class="circle"></div>
-                    </div>
-                    
-                    <div class="computer_rock">  
-                        <i class="fas fa-hand-rock addon" id="computer-rock"></i>
-                        <div class="circle"></div>
-                    </div>
-    
-                    <div class="computer_paper">
-                        <i class="fas fa-hand-paper addon" id="computer-paper"></i>
-                        <div class="circle"></div>
-                    </div>
-    
-                    <div class="computer_scissor">  
-                        <i class="fas fa-hand-scissors addon" id="computer-scissor"></i>
-                        <div class="circle"></div>
-                    </div>
+            <!-- dyanamically updating player name -->
+            <p id="player_name">YOU</p>
+            <p class="name2">COMPUTER</p>
+
+            <!-- three icons for player -->
+
+            <!-- rock -->
+            <div class="player_rock">
+                <i class="fas fa-hand-rock addon" id="rock"></i>
+                <div class="circle"></div>
+            </div>
+            <!-- paper -->
+            <div class="player_paper">
+                <i class="fas fa-hand-paper addon" id="paper"></i>
+                <div class="circle"></div>
+            </div>
+            <!-- scissor -->
+            <div class="player_scissor">
+                <i class="fas fa-hand-scissors addon" id="scissor"></i>
+                <div class="circle"></div>
+            </div>
+
+            <!-- three icons for computer -->
+
+            <!-- rock -->
+            <div class="computer_rock">  
+                <i class="fas fa-hand-rock addon" id="computer-rock"></i>
+                <div class="circle"></div>
+            </div>
+            <!-- paper -->
+            <div class="computer_paper">
+                <i class="fas fa-hand-paper addon" id="computer-paper"></i>
+                <div class="circle"></div>
+            </div>
+            <!-- scissor -->
+            <div class="computer_scissor">  
+                <i class="fas fa-hand-scissors addon" id="computer-scissor"></i>
+                <div class="circle"></div>
+            </div>
         </div>
     </div>
+
+    <!-- back page of the site -->
     <div class="back_page invisible">
         <p class="win_or_loss"></p>
         <img class="home_icon" src="https://img.icons8.com/emoji/96/000000/house-emoji.png"/>
         <button class="play_again">play again</button>
     </div>
-    
-    <!-- bringing icons from Icons8 -->
-    <a href="https://icons8.com/icon/tNcJ7GGjHsUq/house"></a>
-    <!-- bringing icons from font-awesome -->
-    <script src="https://kit.fontawesome.com/4ab6c0d280.js" crossorigin="anonymous"></script>
 
+    <!-- link of scripting code -->
     <script src="main.js"></script>
 </body>
 </html>
