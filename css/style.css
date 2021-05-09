@@ -234,7 +234,7 @@ table tr td{
 
 
 .quotes_animation{
-    animation: quotesanimation 2s ease-in 0s 1;
+    animation: quotesanimation 2s ease-in 0s 1 alternate both;
 }
 
 @keyframes quotesanimation {
@@ -395,7 +395,7 @@ p#player_name {
 
 @media screen and (max-width: 550px) {
     .moves {
-        grid-template-columns: 1rem auto 1fr auto 1rem;
+        grid-template-columns: 0.2rem auto 1fr auto 1rem;
         margin-top: 2rem;
     }
     .game_page h1 {
