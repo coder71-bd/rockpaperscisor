@@ -14,7 +14,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
-  - [Built With](#built-with)
+- [Built With](#built-with)
 - [Features](#features)
 - [Contact](#contact)
 
@@ -22,10 +22,9 @@
 
 ## Overview
 
-![](./frontpage.png)
-![](./gamepage.png)
-![](./backpage.png)
-
+![](./assets/frontpage.png)
+![](./assets/gamepage.png)
+![](./assets/backpage.png)
 
 ### Built With
 
@@ -42,6 +41,6 @@
 
 This application/site was created as a project from [the odin project](https://www.theodinproject.com/)
 
-
 ## Contact
+
 - GitHub [@coder71-bd](https://github.com/coder71-bd)
