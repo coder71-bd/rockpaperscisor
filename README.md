@@ -39,7 +39,11 @@
 
 ## Features
 
-This application/site was created as a project from [the odin project](https://www.theodinproject.com/)
+This application/site was created as a task from [the odin project](https://www.theodinproject.com/). 
+<p>I have divided the whole game into three pages.</p>
+Front page --> It is the landing page of the game. Here you can give your name as an input.<br/>
+Game page --> In this page you can play the game.<br />
+End page --> Here you will see your results.
 
 ## Contact
 
